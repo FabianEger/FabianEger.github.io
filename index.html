@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang= "de">
+    <head>
+        <meta charset="utf-8">
+		<!-- Für Mobilgeräte initialen Zoom abschalten -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!-- Angaben für Suchmaschinen -->
+		<!-- Beschreibung -->
+		<meta name="description" content="Giftköderwebsite">
+		<!-- Stichwörter -->
+		<meta name="keywords" content="Giftköder">
+		<title>
+			Giftköder Tracker
+		</title>
+		<link id="css" rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet">
+      
+    </head>
+    <body>
+       
+        <section class="header">
+
+            <nav>
+                <a></a>
+                <div class="navigation" id="navigation">
+                    <i id="icons">
+                        <span class="material-icons-outlined" onclick="hideMenu()">
+                        close
+                        </span>
+                    </i>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Was ist ein Giftköder?</a></li>
+                        <li><a href="index.html">Karte</a></li>
+                    </ul>
+                </div>
+                <i id="icons">
+                    <span class="material-icons-outlined" onclick="showMenu()">
+                    menu
+                    </span>
+                </i>
+            </nav>
+            <div class="textbox">
+                <h1>Giftköder Tracker</h1>
+                <p>
+                    Auf dieser Website findest du eine Map die dir alle gemeldeten Giftköder in einem Umkreis anzeigt.<br>
+                    Zudem bietet sie dir die Möglichkeit selbst Giftköder der Community zu melden.
+
+                </p>
+            </div>
+            
+            
+
+        </section>
+
+
+        <section class="giftköder">
+            <h1>Was ist ein Giftköder</h1>
+            <p>Lorem ipsum frbrrnvjrnvirvgnirgnvdng</p>
+
+
+            <div class="row">
+                <div class="column">
+                    <h3>Arten von Giftködern</h3>
+                    <p>Lorem ipsum</p>
+                </div>
+                <div class="column">
+                    <h3>Was machen bei Verdacht</h3>
+                    <p>Lorem ipsum</p>
+                </div>
+                <div class="column">
+                    <h3>lorem ipsum</h3>
+                    <p>Lorem ipsum</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="map">
+
+            <h1>Map</h1>
+            <div id="map"></div>
+
+
+
+        </section>
+        
+  
+        <script>
+            var navlinks = document.getElementById("navigation");
+
+
+            function showMenu(){
+               navlinks.style.display = "block";
+                navlinks.style.right = "0";
+            }
+
+            function hideMenu(){
+                navlinks.style.display = "none";
+                navlinks.style.right = "-200px";
+            }
+
+        </script>
+         <script src="map.js"></script>
+
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDITRGV4TnhXnmAaLu9M375nXn1yVQr6eY&callback=initMap&v=weekly"
+        async
+      ></script>
+    </body>
+</html>
