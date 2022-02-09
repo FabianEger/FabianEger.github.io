@@ -64,6 +64,7 @@ function setMarker(){
                   },
               
               });
+              map.setCenter(pos);
             
           },
           () => {
