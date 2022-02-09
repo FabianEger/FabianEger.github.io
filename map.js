@@ -1,5 +1,25 @@
 let map, infoWindow;
 
+
+
+function getLocation(){
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            return {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+          
+          },
+        );
+      } else {
+        // Browser doesn't support Geolocation
+      }
+  
+}
+
+
 function setLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
@@ -26,19 +46,38 @@ function setLocation() {
 }
 
 function setMarker(){
-    let position = {lat: 49.03870904486135, lng:  8.287087109905027};
-    new google.maps.Marker({
-        position: position,
-        map: map,
-        label: {
-            text: "warning_amber",
-            fontFamily: "Material Icons",
-            color: "#ffffff",
-            fontSize: "16px",
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            new google.maps.Marker({
+                position: pos,
+                map: map,
+                label: {
+                    text: "warning_amber",
+                    fontFamily: "Material Icons",
+                    color: "#ffffff",
+                    fontSize: "16px",
+                  },
+              
+              });
+            
           },
-      
-      });
+          () => {
+            handleLocationError(true, infoWindow, map.getCenter());
+          }
+        );
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+   
 }
+
+
 
 function initMap() {
  
@@ -57,5 +96,4 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
 
   setLocation();
-  setMarker();
 }
