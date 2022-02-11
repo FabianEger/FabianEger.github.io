@@ -128,10 +128,8 @@ function initMap() {
     path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
     fillColor: "red",
     fillOpacity: 0.6,
-    strokeWeight: 0,
     rotation: 0,
     scale: 4,
-    anchor: new google.maps.Point(15, 30),
   };
 
 
