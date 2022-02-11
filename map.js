@@ -48,7 +48,7 @@ function updateactualPosition(){
 setInterval(function(){
 
   updateactualPosition();
-},30000);
+},3000);
 
 function setLocation() {
     if (navigator.geolocation) {
@@ -83,7 +83,7 @@ function setMarker(){
               lat: position.coords.latitude,
               lng: position.coords.longitude,
             };
-            new google.maps.Marker({
+           const marker = new google.maps.Marker({
                 position: pos,
                 map: map,
                 label: {
@@ -94,6 +94,12 @@ function setMarker(){
                   },
               
               });
+              let date = new Date();
+              const infoWindow = new google.maps.InfoWindow({content: "Funddatum: " + date.toLocaleDateString() + " " + date.getHours() + ":" + date.getMinutes(),});
+              marker.addListener("click", ()=> {
+                            infoWindow.open(map,marker);
+                          });
+
             
           },
           () => {
@@ -137,8 +143,9 @@ function initMap() {
     position:  { lat: 49, lng:  8 },
     map: map,
     icon: svgMarker
-  });
-  infoWindow = new google.maps.InfoWindow();
+  }); 
+
+ 
 
   setLocation();
 }
