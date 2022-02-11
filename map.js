@@ -48,7 +48,7 @@ function updateactualPosition(){
 setInterval(function(){
 
   updateactualPosition();
-},3000);
+},20000);
 
 function setLocation() {
     if (navigator.geolocation) {
@@ -119,7 +119,7 @@ function initMap() {
  
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 49, lng:  8 },
-    zoom: 13,
+    zoom: 15,
     mapId: '29dd8aef47072665',
     zoomControl: true,
     mapTypeControl: false,
