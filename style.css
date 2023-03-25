@@ -30,7 +30,7 @@ body{
     min-height: 100vh;
     min-width: 10rem;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(images/hintergrund2.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(images/Durkopp-Diana-1957.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -194,7 +194,7 @@ p{
     height: 80vh;
   }
   
-.map{
+.Model{
     width: 80%;
     margin: auto;
     text-align: center;
