@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Angaben für Suchmaschinen -->
 		<!-- Beschreibung -->
-		<meta name="description" content="Giftköderwebsite">
+		<meta name="description" content="DianaWebseite">
 		<!-- Stichwörter -->
-		<meta name="keywords" content="Giftköder">
+		<meta name="keywords" content="Diana">
 		<title>
 			Giftköder Tracker
 		</title>
@@ -33,8 +33,8 @@
                     </i>
                     <ul>
                         <li><a href="#link1">Home</a></li>
-                        <li><a href="#link2">Arten von Giftködern</a></li>
-                        <li><a href="#link3">Karte</a></li>
+                        <li><a href="#link2">Diana Arten</a></li>
+                        <li><a href="#link3"> 3D Model</a></li>
                     </ul>
                 </div>
                 <i id="icons">
@@ -44,10 +44,9 @@
                 </i>
             </nav>
             <div class="textbox">
-                <h1 id="link1">Giftköder Tracker</h1>
+                <h1 id="link1">Dürkopp Diana</h1>
                 <p>
-                    Auf dieser Website findest du eine Karte die dir alle gemeldeten Giftköder in deinem Umkreis anzeigt.<br>
-                    Zudem bietet sie dir die Möglichkeit selbst Giftköder der Community zu melden.
+                    Auf dieser Website finden sie einen detaillierte Beschreibung der Diana Teile und des Aufbaus<br>
 
                 </p>
             </div>
@@ -58,46 +57,113 @@
 
 
         <section class="giftköder">
-            <h1 id="link2">Arten von Giftködern</h1>
+            <h1 id="link2">Diana Arten</h1>
 
 
             <div class="row">
                 <div class="column">
-                    <h3>Rattengift</h3>
-                    <p>Diese Gift wirkt sehr langsam und die Tiere haben zuerst nur sehr unscheinbare Symptome wie eine leichte Unruhe<br>
-                        Sollten sie den verdacht haben, dass ihr Vierbeiner dieses Gift gefressen hat sollten sie umgehend zu einem Tierarzt gehen, den dieses Gift führt zu einer 
-                        Störung der Blutgerinnung und somit zum inneren Verbluten.
+                    <h3>Leertext</h3>
+                    <p>Leertext
                     </p>
                 </div>
                 <div class="column">
-                    <h3>Schneckenkorn</h3>
-                    <p>Schneckenkorn ist ein süßlich schmeckendes Pulver, welches dadruch für einen Hund sehr attraktiv ist.
-                        Es wird oft von Gärtnern und Hausmeistern benutzt und ist bei einer niedrigen Dosierung nicht gefährlich für einen Vierbeiner.
-                        Erst bei einer hohen Konzentration kann es schon nach 30-60 Minuten zum Tod führen.
-                        Die Vergiftung lässt sich vorallem durch Unruhe, Muskelzittern und Herzrasen feststellen.
+                    <h3>Leertext</h3>
+                    <p>Leertext
                     </p>
                 </div>
                 <div class="column">
-                    <h3>Nägel, Rasierklingen & Reißzwecke</h3>
+                    <h3>Leertext</h3>
                     <p>
-                        Einer der am Häufigsten verwendeten Köder mit direkter lebensgefährlicher Wirkung sind Nägel, Rasierklingen und Reißzwecke, welche dem Vierbeiner in 
-                        einem leckerne Fleischbällchen untergejubelt werden.
-                        Sollte dein Vierbeiner solch einen Köder runterschlucken, kann das zu schweren Verletzungen in der Speiseröhre, dem Darm oder dem Magen verursachen.
-                        Sie sollten direkt einen Arzt aufsuchen und auf keinen Fall den Hund zum kotzen bringen.
+                        Leertext
                     </p>
                 </div>
             </div>
 
         </section>
 
-        <section class="map">
+        <section class="Model">
+            <h1 id="link3">3D Model</h1>
+            <script type="importmap">
+                {
+                  "imports": {
+                    "three": "https://unpkg.com/three/build/three.module.js",
+                    "three/addons/": "https://unpkg.com/three/examples/jsm/",
+                    "three-mesh-ui": "https://unpkg.com/three-mesh-ui/build/three-mesh-ui.module.js"
+                  }
+                }
+            </script>
+            <script type="module">
+                import * as THREE from 'three';
+                import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+                import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+                import * as ThreeMeshUI from 'three-mesh-ui';
+  
 
-            <h1 id="link3">Map</h1>
-            <a>
-                <button class="button" onclick="setMarker()">Giftköder an der aktuellen Position melden</button> 
-            </a>
-            
-            <div id="map"></div>
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xa0a0a0);
+                const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+                
+
+                const renderer = new THREE.WebGLRenderer();
+                renderer.setSize( window.innerWidth, window.innerHeight );
+                document.body.appendChild( renderer.domElement );
+
+                const geometry = new THREE.BoxGeometry( 3, 3, 3 );
+                const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+                const cube = new THREE.Mesh( geometry, material );
+                scene.add( cube );
+
+                const loader = new GLTFLoader();
+
+                loader.load("/model/poly.glb", function ( gltf ) {
+
+                    scene.add( gltf.scene );
+
+                }, undefined, function ( error ) {
+
+                    console.error( error );
+
+                } );
+
+                camera.position.z = 5;
+                
+                const container = new ThreeMeshUI.Block({
+                    width: 1.2,
+                    height: 0.7,
+                    padding: 0.2,
+                    fontFamily: 'https://unpkg.com/three-mesh-ui/examples/assets/Roboto-msdf.json',
+                    fontTexture: 'https://unpkg.com/three-mesh-ui/examples/assets/Roboto-msdf.png',
+                    });
+
+                container.color = new THREE.Color(0xa0a0a0);
+
+                const text = new ThreeMeshUI.Text({
+                content: "Some text to be displayed"
+                });
+
+                container.add( text );
+
+                // scene is a THREE.Scene (see three.js)
+                scene.add( container );
+
+// This is typically done in the render loop :
+                ThreeMeshUI.update();
+
+
+                const controls = new OrbitControls( camera, renderer.domElement );
+
+                function animate() {
+                    requestAnimationFrame( animate );
+
+
+                    renderer.render( scene, camera );
+                }
+
+                animate();
+
+            </script>
+        
 
 
 
@@ -105,25 +171,9 @@
         
   
         <script>
-            var navlinks = document.getElementById("navigation");
-
-
-            function showMenu(){
-               navlinks.style.display = "block";
-                navlinks.style.right = "0";
-            }
-
-            function hideMenu(){
-                navlinks.style.display = "none";
-                navlinks.style.right = "-200px";
-            }
-
+            
         </script>
-         <script src="map.js"></script>
-
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDITRGV4TnhXnmAaLu9M375nXn1yVQr6eY&callback=initMap&v=weekly"
-        async
+         
       ></script>
     </body>
 </html>
