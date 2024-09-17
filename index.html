@@ -232,13 +232,15 @@
       function predict(features) {
         const prediction = score(features);
         document.getElementById("debug2").innerHTML = score(features);
-        const classes = {
-          0: "Running",
-          1: "Standing",
-          2: "Walking",
-        };
-
-        return classes[prediction];
+        if(score[0] >= 0.50){
+          return "Walking"
+        }
+        if(score[1] >= 0.50){
+          return "Standing"
+        }
+        if(score[2] >= 0.50){
+          return "Sitting"
+        }
       }
 
       function classify() {
@@ -258,7 +260,7 @@
             break;
         }
 
-        document.getElementById("debug").innerHTML = action;
+        document.getElementById("debug2").innerHTML = action;
       }
 
       document.addEventListener("DOMContentLoaded", function () {
