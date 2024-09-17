@@ -231,7 +231,6 @@
 
       function predict(features) {
         const prediction = score(features);
-        document.getElementById("debug2").innerHTML = score(features);
         if(score[0] >= 0.50){
           return "Walking"
         }
@@ -246,6 +245,7 @@
       function classify() {
         let aggregatedFeatures = aggregateTimestamps();
         let prediction = predict(aggregatedFeatures);
+        document.getElementById("debug2").innerHTML = prediction;
         let action;
 
         switch (prediction) {
