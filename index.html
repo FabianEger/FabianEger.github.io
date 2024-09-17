@@ -231,7 +231,7 @@
 
       function predict(features) {
         const prediction = score(features);
-        document.getElementById("debug").innerHTML = prediction;
+        document.getElementById("debug").innerHTML = score(features);
         const classes = {
           0: "Running",
           1: "Standing",
