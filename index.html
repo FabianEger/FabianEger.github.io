@@ -39,7 +39,7 @@
       features = new Features(); // start empty
       points = [];
 
-      const UPLOAD_RATE = 100; // How many data points are uploaded per second?
+      const UPLOAD_RATE = 20; // How many data points are uploaded per second?
 
       let write = function () {
         if (features.accelerationX.length > 0) {
@@ -231,7 +231,7 @@
 
       function predict(features) {
         const prediction = score(features);
-        document.getElementById("debug2").innerHTML = features;
+        document.getElementById("debug2").innerHTML = score(features);
         const classes = {
           0: "Running",
           1: "Standing",
