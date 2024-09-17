@@ -231,7 +231,7 @@
 
       function predict(features) {
         const prediction = score(features);
-        document.getElementById("debug").innerHTML = score(features);
+        document.getElementById("debug2").innerHTML = features;
         const classes = {
           0: "Running",
           1: "Standing",
@@ -9805,6 +9805,7 @@
   </head>
   <div class="main">
     <p id="debug">Not recording.</p>
+    <p id="debug2">Not recording.</p>
     <button type="button" id="request">Click Me!</button>
   </div>
 </html>
