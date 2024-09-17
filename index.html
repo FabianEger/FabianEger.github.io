@@ -231,6 +231,7 @@
 
       function predict(features) {
         const prediction = score(features);
+        document.getElementById("debug1").innerHTML = score(features);
         if(score[0] >= 0.50){
           return "Walking"
         }
@@ -9807,6 +9808,7 @@
   </head>
   <div class="main">
     <p id="debug">Not recording.</p>
+    <p id="debug1">Not recording.</p>
     <p id="debug2">Not recording.</p>
     <button type="button" id="request">Click Me!</button>
   </div>
