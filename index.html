@@ -244,7 +244,6 @@
       function classify() {
         let aggregatedFeatures = aggregateTimestamps();
         let prediction = predict(aggregatedFeatures);
-        alert("DeviceMotionEvent is not defined");
         let action;
 
         switch (prediction) {
@@ -345,7 +344,7 @@
             })
             .catch(console.error);
         } else {
-          //alert("DeviceMotionEvent is not defined");
+          alert("DeviceMotionEvent is not defined");
         }
       }
 
