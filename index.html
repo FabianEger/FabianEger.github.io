@@ -232,13 +232,13 @@
       function predict(features) {
         const prediction = score(features);
         document.getElementById("debug1").innerHTML = score(features);
-        if(score[0] >= 0.50){
+        if(prediction[0] >= 0.50){
           return "Walking"
         }
-        if(score[1] >= 0.50){
+        if(prediction[1] >= 0.50){
           return "Standing"
         }
-        if(score[2] >= 0.50){
+        if(prediction[2] >= 0.50){
           return "Sitting"
         }
       }
