@@ -231,7 +231,7 @@
 
       function predict(features) {
         const prediction = score(features);
-        document.getElementById("debug1").innerHTML = round(score(features),3);
+        document.getElementById("debug1").innerHTML = str(round(prediction[0],3)) + ";"  + str(round(prediction[1],3)) + ";" + str(round(prediction[2],3)) ;
         if(prediction[0] >= 0.50){
           return "Walking"
         }
