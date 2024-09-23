@@ -231,14 +231,17 @@
 
       function predict(features) {
         const prediction = score(features);
-        document.getElementById("debug1").innerHTML = prediction[0];
+        
         if(prediction[0] >= 0.50){
+          document.getElementById("debug1").innerHTML = prediction[0];
           return "Walking"
         }
         if(prediction[1] >= 0.50){
+          document.getElementById("debug1").innerHTML = prediction[1];
           return "Standing"
         }
         if(prediction[2] >= 0.50){
+          document.getElementById("debug1").innerHTML = prediction[2];
           return "Sitting"
         }
       }
